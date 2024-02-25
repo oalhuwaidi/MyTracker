@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MyTracker</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="workouts">Workouts</string>
+    <string name="meals">Meals</string>
+    <string name="profile">Profile</string>
+    <string name="light_activity_desc">Light: \nThis activity level is suitable for individuals who engage in light physical activity or exercise occasionally, such as walking or light housework.</string>
+    <string name="active_activity_desc">Active: \nThis activity level is suitable for individuals who engage in vigorous physical activity or exercise consistently, such as running, intense workouts, or competitive sports.</string>
+    <string name="moderate_activity_desc">Moderate:  \nThis activity level is suitable for individuals who engage in moderate physical activity or exercise regularly, such as brisk walking, cycling, or recreational swimming.</string>
+    <string name="sign_up">Sign up</string>
+</resources>

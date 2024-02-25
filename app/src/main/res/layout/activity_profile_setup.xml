@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ProfileSetupActivity">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_margin="30dp"
+        android:text="Tell Us About Yourself"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:typeface="serif"/>
+
+    <NumberPicker
+        android:id="@+id/numpicker"
+        android:visibility="gone"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_enter"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Continue"
+        android:layout_gravity="bottom"
+        android:layout_margin="30dp" />
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/activity_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <RadioGroup
+            android:visibility="visible"
+            android:id="@+id/radio_group_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/radio_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:text="Light"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+            <RadioButton
+                android:id="@+id/radio_moderate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:background="@drawable/custom_radio_weight"
+                android:layoutDirection="rtl"
+                android:layout_marginBottom="10dp"
+                android:text="Moderate"
+                android:textAlignment="center"
+                android:button="@android:color/transparent"
+                android:textStyle="bold"/>
+            <RadioButton
+                android:id="@+id/radio_active"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:text="Active"
+                android:background="@drawable/custom_radio_weight"
+                android:layoutDirection="rtl"
+                android:textAlignment="center"
+                android:button="@android:color/transparent"
+                android:textStyle="bold"/>
+        </RadioGroup>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:typeface="serif"
+            android:textAlignment="center"
+            android:text=""/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_moderate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:typeface="serif"
+            android:textAlignment="center"
+            android:text=""/>
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/tv_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:typeface="serif"
+            android:textAlignment="center"
+            android:text=""
+            />
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:visibility="gone"
+        android:id="@+id/radio_group_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_gravity="center">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="18dp"
+            android:text="Build Muscle / Gain Weight"
+            android:background="@drawable/custom_radio_weight"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="10dp"
+            android:button="@android:color/transparent"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="18dp"
+            android:text="Get Fitter / Lose Weight"
+            android:background="@drawable/custom_radio_weight"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="10dp"
+            android:button="@android:color/transparent"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="18dp"
+            android:text="Maintain Weight / Stay Fit"
+            android:background="@drawable/custom_radio_weight"
+            android:layoutDirection="rtl"
+            android:button="@android:color/transparent"/>
+
+    </RadioGroup>
+
+<!---->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="visible"
+        android:id="@+id/gender_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <RadioGroup
+            android:id="@+id/radio_group_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/custom_radio_selector"
+                android:button="@android:color/transparent"
+                android:foregroundGravity="bottom"
+                android:gravity="bottom|center"
+                android:paddingBottom="40dp"
+                android:text="Male"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_radio_selector"
+                android:button="@android:color/transparent"
+                android:foregroundGravity="bottom"
+                android:gravity="bottom|center"
+                android:paddingBottom="40dp"
+                android:text="Female"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+
+            android:src="@drawable/male"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="93dp"
+            android:layout_height="103dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="75dp"
+            android:src="@drawable/female"
+            app:layout_constraintBottom_toBottomOf="@+id/radio_group_gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="ring"
+            android:thicknessRatio="32"
+            android:useLevel="false">
+            <solid android:color="@color/design_default_color_surface" />
+        </shape>
+    </item>
+    <item>
+        <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+            android:fromDegrees="270"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="270">
+            <shape
+                android:innerRadiusRatio="2.5"
+                android:shape="ring"
+                android:thicknessRatio="10.0" >
+                <solid android:color="@color/design_default_color_primary_dark" /> <!-- Change the color as needed -->
+            </shape>
+        </rotate>
+    </item>
+</layer-list>
