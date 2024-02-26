@@ -7,17 +7,30 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ProfileSetupActivity">
-
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_margin="30dp"
-        android:text="Tell Us About Yourself"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:typeface="serif"/>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:text="Let's personalize your journey!"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:text=" To create a diet and workout plan that fits your unique needs and goals, tell us a little about yourself."
+            />
+    </LinearLayout>
 
     <NumberPicker
         android:id="@+id/numpicker"
@@ -33,6 +46,7 @@
         android:text="Continue"
         android:layout_gravity="bottom"
         android:layout_margin="30dp" />
+
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/activity_input"
@@ -60,32 +74,40 @@
                 android:paddingVertical="18dp"
                 android:text="Light"
                 android:textAlignment="center"
-                android:textStyle="bold"/>
+                android:textColor="#000000"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF"
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/radio_moderate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
                 android:paddingHorizontal="25dp"
                 android:paddingVertical="18dp"
-                android:background="@drawable/custom_radio_weight"
-                android:layoutDirection="rtl"
-                android:layout_marginBottom="10dp"
                 android:text="Moderate"
                 android:textAlignment="center"
-                android:button="@android:color/transparent"
-                android:textStyle="bold"/>
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
             <RadioButton
                 android:id="@+id/radio_active"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
                 android:paddingHorizontal="25dp"
                 android:paddingVertical="18dp"
                 android:text="Active"
-                android:background="@drawable/custom_radio_weight"
-                android:layoutDirection="rtl"
                 android:textAlignment="center"
-                android:button="@android:color/transparent"
-                android:textStyle="bold"/>
+                android:textColor="#000000"
+                android:textStyle="bold" />
         </RadioGroup>
         <TextView
             android:visibility="gone"
@@ -93,69 +115,73 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:typeface="serif"
+            android:fontFamily="@font/source_sans_pro_semibold"
             android:textAlignment="center"
             android:text=""/>
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/tv_moderate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:typeface="serif"
-            android:textAlignment="center"
-            android:text=""/>
-        <TextView
-            android:visibility="visible"
-            android:id="@+id/tv_active"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:typeface="serif"
-            android:textAlignment="center"
-            android:text=""
-            />
     </LinearLayout>
 
-
-    <RadioGroup
-        android:visibility="gone"
-        android:id="@+id/radio_group_goal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_gravity="center">
-        <RadioButton
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <RadioGroup
+            android:visibility="gone"
+            android:id="@+id/radio_group_goal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="18dp"
-            android:text="Build Muscle / Gain Weight"
-            android:background="@drawable/custom_radio_weight"
-            android:layoutDirection="rtl"
-            android:layout_marginBottom="10dp"
-            android:button="@android:color/transparent"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="18dp"
-            android:text="Get Fitter / Lose Weight"
-            android:background="@drawable/custom_radio_weight"
-            android:layoutDirection="rtl"
-            android:layout_marginBottom="10dp"
-            android:button="@android:color/transparent"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="18dp"
-            android:text="Maintain Weight / Stay Fit"
-            android:background="@drawable/custom_radio_weight"
-            android:layoutDirection="rtl"
-            android:button="@android:color/transparent"/>
+            android:layout_margin="30dp"
+            android:layout_gravity="center">
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/goal_bulk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:text="Build Muscle / Gain Weight"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/goal_cut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:text="Get Fitter / Lose Weight"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/goal_maintain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_radio_weight"
+                android:button="@android:color/transparent"
+                android:layoutDirection="rtl"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="18dp"
+                android:text="Stay Fit / Maintain Weight"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/tv_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="30dp"
+            android:fontFamily="@font/source_sans_pro_semibold"/>
+    </LinearLayout>
 
 <!---->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -185,7 +211,7 @@
                 android:gravity="bottom|center"
                 android:paddingBottom="40dp"
                 android:text="Male"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -201,7 +227,7 @@
                 android:gravity="bottom|center"
                 android:paddingBottom="40dp"
                 android:text="Female"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
         </RadioGroup>
 
@@ -216,7 +242,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -228,7 +254,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/radio_group_gender"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

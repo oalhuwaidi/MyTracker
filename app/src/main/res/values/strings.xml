@@ -15,4 +15,7 @@
     <string name="active_activity_desc">Active: \nThis activity level is suitable for individuals who engage in vigorous physical activity or exercise consistently, such as running, intense workouts, or competitive sports.</string>
     <string name="moderate_activity_desc">Moderate:  \nThis activity level is suitable for individuals who engage in moderate physical activity or exercise regularly, such as brisk walking, cycling, or recreational swimming.</string>
     <string name="sign_up">Sign up</string>
+    <string name="bulk_desc">This option is ideal if you want to increase your muscle mass and overall weight. It focuses on strength training exercises and a calorie surplus diet to support muscle growth.</string>
+    <string name="cut_desc">This option aims to improve your overall fitness level and reduce body fat percentage. It incorporates a combination of cardio and strength training exercises alongside a calorie deficit diet to promote healthy weight loss.</string>
+    <string name="maintain_desc">This option helps you maintain your current weight and fitness level. It involves regular physical activity and a balanced diet to ensure you\'re consuming enough calories to sustain your energy needs.</string>
 </resources>
