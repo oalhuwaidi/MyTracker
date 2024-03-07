@@ -28,7 +28,18 @@
             android:layout_marginHorizontal="30dp"
             android:textAlignment="center"
             android:fontFamily="@font/source_sans_pro_semibold"
-            android:text=" To create a diet and workout plan that fits your unique needs and goals, tell us a little about yourself."
+            android:text=" To create a diet and workout plan that fits your unique needs and goals, tell us a little about yourself." />
+        <TextView
+            android:id="@+id/tv_input_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="50dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="25sp"
             />
     </LinearLayout>
 

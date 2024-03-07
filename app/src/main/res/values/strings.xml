@@ -18,4 +18,11 @@
     <string name="bulk_desc">This option is ideal if you want to increase your muscle mass and overall weight. It focuses on strength training exercises and a calorie surplus diet to support muscle growth.</string>
     <string name="cut_desc">This option aims to improve your overall fitness level and reduce body fat percentage. It incorporates a combination of cardio and strength training exercises alongside a calorie deficit diet to promote healthy weight loss.</string>
     <string name="maintain_desc">This option helps you maintain your current weight and fitness level. It involves regular physical activity and a balanced diet to ensure you\'re consuming enough calories to sustain your energy needs.</string>
+    <string name="enter_your_age">Enter your Age</string>
+    <string name="enter_your_current_weight">Enter your current Weight</string>
+    <string name="enter_your_height">Enter your Height</string>
+    <string name="what_is_your_activity_level">What is your Activity Level</string>
+    <string name="what_is_your_goal">What is your Goal</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

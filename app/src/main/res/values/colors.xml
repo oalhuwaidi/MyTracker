@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#C9F240</color>
+    <color name="dark_gray2">#212122</color>
+    <color name="dark_gray">#393E46</color>
+    <color name="light_gray">#CCCCCC</color>
+    <color name="default_gray">#FF6B696D</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+
+
+    <color name="new_bg">#222431</color>
+    <color name="new_primary">#73798E</color>
+
+    <color name="primary_bg">#222831</color>
+    <color name="secondary_bg">#393E46</color>
+    <color name="primary_color">#00ADB5</color>
+    <color name="secondary_color">#EEEEEE</color>
+
 </resources>

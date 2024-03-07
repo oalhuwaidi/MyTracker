@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class ProfileSetupActivity extends AppCompatActivity {
-    private TextView tv1, tvActivity, tvGoal;
+    private TextView tv1, tvActivity, tvGoal, tvInputDesc;
     private NumberPicker numpicker;
     private String goal, gender, activityLevel;
     private Map<String, Object> user = new HashMap<>();
@@ -40,6 +40,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup);
         tv1 = findViewById(R.id.tv1);
+        tvInputDesc= findViewById(R.id.tv_input_desc);
         tvActivity = findViewById(R.id.tv_light);
         tvGoal = findViewById(R.id.tv_goal);
         numpicker = findViewById(R.id.numpicker);
@@ -72,6 +73,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
                                 gender = "female";
                             }
                             fadeOutInViewView(genderInput, numpicker);
+                            fadeOutInViewDesc(tvInputDesc, R.string.enter_your_age);
                             isGender = false;
                         } else {
                             Toast.makeText(getApplicationContext(), "Please select an option", Toast.LENGTH_SHORT).show();
@@ -80,14 +82,19 @@ public class ProfileSetupActivity extends AppCompatActivity {
                     } else if (isAge) {
                         age = numpicker.getValue();
                         fadeOutInView(numpicker, 25, 60, 300);
+                        fadeOutInViewDesc(tvInputDesc, R.string.enter_your_current_weight);
+
                         isAge = false;
                     } else if (isWeight) {
                         weight = numpicker.getValue();
                         fadeOutInView(numpicker, 120, 180, 240);
+                        fadeOutInViewDesc(tvInputDesc, R.string.enter_your_height);
                         isWeight = false;
                     } else if (isHeight) {
                         height = numpicker.getValue();
                         fadeOutInViewView(numpicker, activityInput);
+                        fadeOutInViewDesc(tvInputDesc, R.string.what_is_your_activity_level);
+
                         isHeight = false;
                     } else if (isActivity) {
                         int selectedRadioButtonId = radioGroupActivity.getCheckedRadioButtonId();
@@ -101,6 +108,7 @@ public class ProfileSetupActivity extends AppCompatActivity {
                             }
                             isActivity = false;
                             fadeOutInViewView(activityInput, radioGroupGoal);
+                            fadeOutInViewDesc(tvInputDesc, R.string.what_is_your_goal);
                         } else {Toast.makeText(getApplicationContext(), "Please select an option", Toast.LENGTH_SHORT).show();}
                     }
                     else if (isGoal) {
@@ -113,17 +121,17 @@ public class ProfileSetupActivity extends AppCompatActivity {
                             }else if (selectedRadioButtonId == R.id.goal_maintain) {
                                 goal = "maintain";
                             }
+                            calculateMacros(age, height, weight, gender, activityLevel, goal);
                             user.put("gender", gender);
                             user.put("age", age);
                             user.put("weight", weight);
                             user.put("height", height);
                             user.put("activityLevel", activityLevel);
                             user.put("goal", goal);
-                            db.collection("users").document(userId).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Toast.makeText(getApplicationContext(), "Profile created successfully", Toast.LENGTH_SHORT).show();
-                                }
+                            db.collection("users").document(userId).update(user).addOnSuccessListener(unused -> {
+                                fadeOutView(radioGroupGoal, true);
+                                fadeOutView(tvInputDesc, true);
+                                Toast.makeText(getApplicationContext(), "Profile created successfully", Toast.LENGTH_SHORT).show();
                             });
                             isGoal = false;
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -183,6 +191,16 @@ public class ProfileSetupActivity extends AppCompatActivity {
             }
         }).start();
     }
+    private void fadeOutInViewDesc(TextView view, int x) {
+        view.animate().alpha(0f).setDuration(500).withEndAction(new Runnable() {
+            @Override
+            public void run() {
+                view.setText(x);
+                view.setVisibility(View.VISIBLE);
+                view.animate().alpha(1f).setDuration(500).start();
+            }
+        }).start();
+    }
     private void fadeOutInViewTv(TextView view, int x) {
         view.animate().alpha(0f).setDuration(100).withEndAction(new Runnable() {
             @Override
@@ -195,5 +213,44 @@ public class ProfileSetupActivity extends AppCompatActivity {
     }
     private void fadeOutInView(View view) {
         view.animate().alpha(0f).setDuration(500).withEndAction(() -> view.animate().alpha(1f).setDuration(500).start()).start();
+    }
+    private void calculateMacros(int age, int height, int weight, String gender, String activityLevel, String goal) {
+        // Calculate BMR
+        double bmr;
+        if (Objects.equals(gender, "male")) {
+            bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        } else {
+            bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+        }
+
+        double totalCalories = 0;
+
+
+        // Adjust BMR based on activity level
+        if (Objects.equals(activityLevel, "light")){
+             totalCalories = bmr * 1.2;
+        } else if (Objects.equals(activityLevel, "moderate")) {
+             totalCalories = bmr * 1.55;
+        } else if (Objects.equals(activityLevel, "active")) {
+             totalCalories = bmr * 1.9;
+        }
+
+        if (Objects.equals(goal, "maintain")){
+            return;
+        } else if (Objects.equals(goal, "cut")) {
+            totalCalories *= 0.8;
+        } else if (Objects.equals(goal, "bulk")) {
+            totalCalories *= 1.2;
+        }
+
+        // Calculate macronutrients (protein, carbs, fat)
+        double protein = weight * 2.2 * 0.8; // 0.8 grams per pound of body weight
+        double fat = totalCalories * 0.25 / 9; // 25% of total calories from fat, 1 gram of fat = 9 calories
+        double carbs = (totalCalories - (protein * 4) - (fat * 9)) / 4; // remaining calories from carbs
+
+        user.put("totalKcal", totalCalories);
+        user.put("protein", protein);
+        user.put("fat", fat);
+        user.put("carbs", carbs);
     }
 }

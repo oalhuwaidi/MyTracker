@@ -10,12 +10,17 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/secondary_bg"
+        app:itemIconTint="@drawable/nav_bar_style"
+        app:itemTextColor="@drawable/nav_bar_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
-        app:menu="@menu/bottom_menu"/>
-
+        app:menu="@menu/bottom_menu"
+        app:itemActiveIndicatorStyle="@color/primary_color"/>
+    <!--        app:itemBackground="@android:color/white"-->
+    <!--        app:itemRippleColor="@color/white"-->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"

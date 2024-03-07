@@ -2,6 +2,32 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MyTracker" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:windowBackground">@color/primary_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorSecondary">@color/secondary_color</item>
+    </style>
+
+    <style name="CardViewStyle" parent="@style/CardView.Dark">
+        <item name="cardBackgroundColor">@color/secondary_bg</item>
+    </style>
+
+    <style name="FabShapeStyle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="FabBG">
+        <item name="fabCustomSize">80dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="fabMealInput">
+        <item name="backgroundTint">@color/primary_color</item>
+    </style>
+
+
+    <style name="ThemeOverlay.MyTracker.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/primary_bg</item>
+        <item name="fullscreenTextColor">@color/white</item>
     </style>
 </resources>

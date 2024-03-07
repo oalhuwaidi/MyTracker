@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="8dp"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/tvSetNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Set 1"
+        />
+
+    <EditText
+        android:id="@+id/etReps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_weight="1"
+        android:hint="Reps"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:background="@drawable/custom_edittext"/>
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/custom_edittext"
+        android:hint="Weight "
+        android:inputType="numberDecimal"
+        android:paddingVertical="5dp"
+        android:textAlignment="center" />
+</LinearLayout>
